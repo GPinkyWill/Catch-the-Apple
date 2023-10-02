@@ -19,5 +19,6 @@ func decreaseLife(d):
 	if(lives <= 0):
 		
 		print(score)
+		Global.highscore = score
 		get_tree().change_scene_to_file("res://Scenes/gameover.tscn")
 		
