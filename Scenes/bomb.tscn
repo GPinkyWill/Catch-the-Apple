@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbpxsknfff6qu"]
+
+[ext_resource type="Texture2D" uid="uid://cc0ge2jquodaq" path="res://Sprites/bomb.png" id="1_d63mb"]
+[ext_resource type="Script" path="res://Scripts/bomb.gd" id="1_fxsvf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_82bd6"]
+radius = 38.1182
+
+[node name="Bomb" type="RigidBody2D" groups=["Bomb"]]
+script = ExtResource("1_fxsvf")
+
+[node name="Bomb" type="Sprite2D" parent="."]
+texture = ExtResource("1_d63mb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 14)
+shape = SubResource("CircleShape2D_82bd6")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

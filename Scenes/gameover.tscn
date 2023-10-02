@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://cr5mog3wenuvr"]
+
+[ext_resource type="Texture2D" uid="uid://qilxxu65y0py" path="res://Sprites/Forest.jpg" id="1_al75d"]
+[ext_resource type="Script" path="res://Scripts/gameover.gd" id="1_w6jca"]
+[ext_resource type="FontFile" uid="uid://62qg5sd0lnmw" path="res://Sprites/Fonts/design.graffiti.comicsansmsgras.ttf" id="2_ebvkf"]
+[ext_resource type="Script" path="res://Scripts/GameOverHUD.gd" id="3_kbw8e"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_w6jca")
+
+[node name="Forest" type="Sprite2D" parent="."]
+position = Vector2(512, 288)
+texture = ExtResource("1_al75d")
+
+[node name="GameOverHUD" type="CanvasLayer" parent="." groups=["FinalScore"]]
+script = ExtResource("3_kbw8e")
+
+[node name="Label" type="Label" parent="GameOverHUD"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -143.0
+offset_right = 117.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ebvkf")
+theme_override_font_sizes/font_size = 44
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreFinal" type="Label" parent="GameOverHUD"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -73.0
+offset_right = 117.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ebvkf")
+theme_override_font_sizes/font_size = 30
+text = "Score : 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="GameOverHUD"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = 39.0
+offset_right = 107.5
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ebvkf")
+theme_override_font_sizes/font_size = 33
+text = "Reset"
+
+[connection signal="pressed" from="GameOverHUD/Button" to="." method="_on_button_pressed"]
